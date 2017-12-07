@@ -4,14 +4,13 @@
 Download the NDVI3g (third generation GIMMS NDVI from AVHRR sensors).
 """
 
-from urllib.request import urlopen
+import urllib.request
 import numpy as np
 import sys
 import os
 import pandas as pd
 import io
 import requests
-
 
 __author__  = "Martin De Kauwe"
 __version__ = "1.0 (07.12.2017)"
@@ -27,8 +26,14 @@ df = pd.read_csv(io.StringIO(s.decode('utf-8')))
 
 for index, row in df.iterrows():
     url_f = row.values[0]
-    response = urlopen(url_f.strip())
     ofile = os.path.join(save_dir_name, url_f.split('/')[-1])
-    f = open(ofile, 'w')
-    f.write(response.read())
-    f.close()
+    print(ofile)
+    urllib.request.urlretrieve(url_f, ofile)
+
+    #response = urlopen(url_f.strip())
+    #ofile = os.path.join(save_dir_name, url_f.split('/')[-1])
+
+    #urllib.request.urlretrieve('http://www.example.com/songs/mp3.mp3', 'mp3.mp3')
+    #f = open(ofile, 'w')
+    #f.write(response.read())
+    #f.close()
