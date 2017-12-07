@@ -1,0 +1,3 @@
+# NDVI3g
+
+Download the NDVI3g data and do something with it ...
