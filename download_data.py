@@ -29,11 +29,3 @@ for index, row in df.iterrows():
     ofile = os.path.join(save_dir_name, url_f.split('/')[-1])
     print(ofile)
     urllib.request.urlretrieve(url_f, ofile)
-
-    #response = urlopen(url_f.strip())
-    #ofile = os.path.join(save_dir_name, url_f.split('/')[-1])
-
-    #urllib.request.urlretrieve('http://www.example.com/songs/mp3.mp3', 'mp3.mp3')
-    #f = open(ofile, 'w')
-    #f.write(response.read())
-    #f.close()
